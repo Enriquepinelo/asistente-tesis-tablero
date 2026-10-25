@@ -567,8 +567,8 @@
    "txt": "Mejoré la bandeja del docente con resumen, agrupación por estudiante, rúbrica, observaciones rápidas, descarga en Word y documentos de revisión",
    "pri": "Alta",
    "pts": 8,
-   "est": "En progreso",
-   "crit": "El docente revisa con rúbrica, sube su documento y el estudiante lo descarga"
+   "est": "Terminado",
+   "crit": "Probado en línea: aprobé con rúbrica y el estudiante descargó el documento en Revisiones"
   }
  ],
  "sprints": [
