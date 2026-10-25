@@ -577,8 +577,8 @@
    "txt": "Ordené las Revisiones del estudiante con resumen, pestañas por estado y lista compacta",
    "pri": "Media",
    "pts": 3,
-   "est": "En progreso",
-   "crit": "El estudiante encuentra sus ajustes, aprobadas y documentos sin buscar"
+   "est": "Terminado",
+   "crit": "Probado en línea: pestañas con 3 ajustes, 3 aprobadas y 3 documentos"
   }
  ],
  "sprints": [
