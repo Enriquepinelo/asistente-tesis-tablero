@@ -1,0 +1,605 @@
+{
+ "items": [
+  {
+   "id": "PB01",
+   "sp": "S1",
+   "tipo": "Historia",
+   "txt": "Analicé el esquema real de la base de datos para construir el backend sobre él",
+   "pri": "Alta",
+   "pts": 3,
+   "est": "Terminado",
+   "crit": "Revisé las 6 tablas con su CREATE TABLE completo"
+  },
+  {
+   "id": "PB02",
+   "sp": "S1",
+   "tipo": "Tarea",
+   "txt": "Documenté las relaciones y llaves foráneas entre formularios, propuestas, historial y recomendaciones",
+   "pri": "Media",
+   "pts": 2,
+   "est": "Terminado",
+   "crit": "Dejé registradas las relaciones y las reglas ON DELETE"
+  },
+  {
+   "id": "PB03",
+   "sp": "S1",
+   "tipo": "Tarea",
+   "txt": "Definí el vínculo entre usuarios y estudiantes por correo, resuelto en el backend",
+   "pri": "Media",
+   "pts": 1,
+   "est": "Terminado",
+   "crit": "Tomé la decisión sin alterar la base de datos"
+  },
+  {
+   "id": "PB04",
+   "sp": "S1",
+   "tipo": "Tarea",
+   "txt": "Definí la prioridad de las recomendaciones calculada en el backend, sin columna nueva",
+   "pri": "Baja",
+   "pts": 1,
+   "est": "Terminado",
+   "crit": "Implementé la regla en el servicio"
+  },
+  {
+   "id": "PB05",
+   "sp": "S2",
+   "tipo": "Historia",
+   "txt": "Construí el inicio de sesión con correo y contraseña para que cada usuario entre según su rol",
+   "pri": "Alta",
+   "pts": 5,
+   "est": "Terminado",
+   "crit": "POST /api/auth/login devuelve el token y el rol"
+  },
+  {
+   "id": "PB06",
+   "sp": "S2",
+   "tipo": "Tarea",
+   "txt": "Organicé el backend en capas: config, controllers, routes, services, repositories y validators",
+   "pri": "Alta",
+   "pts": 3,
+   "est": "Terminado",
+   "crit": "El proyecto compila con tsc sin errores"
+  },
+  {
+   "id": "PB07",
+   "sp": "S2",
+   "tipo": "Tarea",
+   "txt": "Conecté el backend a MySQL y creé la ruta de salud GET /api/salud",
+   "pri": "Alta",
+   "pts": 2,
+   "est": "Terminado",
+   "crit": "La ruta responde exito: true"
+  },
+  {
+   "id": "PB08",
+   "sp": "S2",
+   "tipo": "Historia",
+   "txt": "Hice que el estudiante pueda registrar su formulario de tesis como borrador",
+   "pri": "Alta",
+   "pts": 3,
+   "est": "Terminado",
+   "crit": "POST /api/formularios crea el registro"
+  },
+  {
+   "id": "PB09",
+   "sp": "S2",
+   "tipo": "Tarea",
+   "txt": "Agregué validaciones de entrada con Zod",
+   "pri": "Media",
+   "pts": 2,
+   "est": "Terminado",
+   "crit": "Las peticiones inválidas responden 400"
+  },
+  {
+   "id": "PB10",
+   "sp": "S2",
+   "tipo": "Tarea",
+   "txt": "Desarrollé los módulos de historial, propuestas, recomendaciones y panel",
+   "pri": "Media",
+   "pts": 5,
+   "est": "Terminado",
+   "crit": "Las rutas responden con datos de la base"
+  },
+  {
+   "id": "PB11",
+   "sp": "S2",
+   "tipo": "Tarea",
+   "txt": "Creé los usuarios de prueba por SQL con contraseña cifrada con bcrypt",
+   "pri": "Media",
+   "pts": 1,
+   "est": "Terminado",
+   "crit": "Inicié sesión con ambos usuarios"
+  },
+  {
+   "id": "PB12",
+   "sp": "S3",
+   "tipo": "Historia",
+   "txt": "Logré que el sistema genere propuestas de tesis con inteligencia artificial",
+   "pri": "Alta",
+   "pts": 8,
+   "est": "Terminado",
+   "crit": "El webhook devuelve propuestas generadas por Gemini"
+  },
+  {
+   "id": "PB13",
+   "sp": "S3",
+   "tipo": "Tarea",
+   "txt": "Armé en n8n los nodos que reciben la solicitud y validan los campos",
+   "pri": "Alta",
+   "pts": 3,
+   "est": "Terminado",
+   "crit": "Los datos incompletos devuelven error de validación"
+  },
+  {
+   "id": "PB14",
+   "sp": "S3",
+   "tipo": "Tarea",
+   "txt": "Construí el prompt y conecté el flujo con Google Gemini",
+   "pri": "Alta",
+   "pts": 3,
+   "est": "Terminado",
+   "crit": "La ejecución termina con todos los nodos en verde"
+  },
+  {
+   "id": "PB15",
+   "sp": "S3",
+   "tipo": "Error",
+   "txt": "Cambié de modelo porque gemini 2.5 flash dejó de estar disponible",
+   "pri": "Alta",
+   "pts": 1,
+   "est": "Terminado",
+   "crit": "El flujo completo corre con el modelo nuevo"
+  },
+  {
+   "id": "PB16",
+   "sp": "S3",
+   "tipo": "Error",
+   "txt": "Corregí el envío del backend a n8n, que no incluía los datos del estudiante",
+   "pri": "Alta",
+   "pts": 2,
+   "est": "Terminado",
+   "crit": "n8n.service.ts envía nombre, correo, carnet, carrera y sede"
+  },
+  {
+   "id": "PB17",
+   "sp": "S3",
+   "tipo": "Error",
+   "txt": "Corregí el nodo Procesar Respuesta IA para extraer bien el JSON de Gemini",
+   "pri": "Alta",
+   "pts": 2,
+   "est": "Terminado",
+   "crit": "Los campos de la propuesta llegan completos"
+  },
+  {
+   "id": "PB18",
+   "sp": "S3",
+   "tipo": "Error",
+   "txt": "Corregí el nodo de guardado, que apuntaba a una tabla que no existía",
+   "pri": "Alta",
+   "pts": 2,
+   "est": "Terminado",
+   "crit": "Guarda en propuestas_generadas e historial_flujos"
+  },
+  {
+   "id": "PB19",
+   "sp": "S3",
+   "tipo": "Tarea",
+   "txt": "Integré el backend con n8n en la ruta de generar propuesta",
+   "pri": "Alta",
+   "pts": 3,
+   "est": "Terminado",
+   "crit": "La ruta responde 200 con la propuesta"
+  },
+  {
+   "id": "PB20",
+   "sp": "S4",
+   "tipo": "Historia",
+   "txt": "Diseñé la pantalla de inicio de sesión con la identidad de la UMG",
+   "pri": "Alta",
+   "pts": 3,
+   "est": "Terminado",
+   "crit": "El login funciona con logo y colores institucionales"
+  },
+  {
+   "id": "PB21",
+   "sp": "S4",
+   "tipo": "Historia",
+   "txt": "Simplifiqué el formulario del estudiante a tres campos",
+   "pri": "Alta",
+   "pts": 5,
+   "est": "Terminado",
+   "crit": "El formulario crea y genera la propuesta"
+  },
+  {
+   "id": "PB22",
+   "sp": "S4",
+   "tipo": "Historia",
+   "txt": "Hice las vistas para que el estudiante vea su propuesta y su historial",
+   "pri": "Alta",
+   "pts": 5,
+   "est": "Terminado",
+   "crit": "Las vistas muestran los datos guardados"
+  },
+  {
+   "id": "PB23",
+   "sp": "S4",
+   "tipo": "Tarea",
+   "txt": "Preparé las vistas y menús para los cuatro roles",
+   "pri": "Media",
+   "pts": 5,
+   "est": "Terminado",
+   "crit": "Cada rol ve su propio menú"
+  },
+  {
+   "id": "PB24",
+   "sp": "S4",
+   "tipo": "Error",
+   "txt": "Revisé que la pestaña Mi propuesta muestre la propuesta del estudiante",
+   "pri": "Media",
+   "pts": 2,
+   "est": "Terminado",
+   "crit": "Probado en línea: muestra tema, planteamiento, objetivos y justificación"
+  },
+  {
+   "id": "PB25",
+   "sp": "S4",
+   "tipo": "Historia",
+   "txt": "Separé el flujo en dos pasos: primero propongo tres temas y luego desarrollo el elegido",
+   "pri": "Media",
+   "pts": 8,
+   "est": "Terminado",
+   "crit": "Probado en línea: tres temas y luego el anteproyecto completo"
+  },
+  {
+   "id": "PB26",
+   "sp": "S5",
+   "tipo": "Tarea",
+   "txt": "Migré la base de datos a MySQL en Aiven",
+   "pri": "Alta",
+   "pts": 3,
+   "est": "Terminado",
+   "crit": "El backend se conecta a Aiven con SSL"
+  },
+  {
+   "id": "PB27",
+   "sp": "S5",
+   "tipo": "Tarea",
+   "txt": "Subí el backend a GitHub y lo publiqué en Render",
+   "pri": "Alta",
+   "pts": 3,
+   "est": "Terminado",
+   "crit": "La ruta de salud y el login funcionan en línea"
+  },
+  {
+   "id": "PB28",
+   "sp": "S5",
+   "tipo": "Tarea",
+   "txt": "Publiqué n8n en Render con PostgreSQL en Neon",
+   "pri": "Alta",
+   "pts": 5,
+   "est": "Terminado",
+   "crit": "El editor de n8n abre en línea"
+  },
+  {
+   "id": "PB29",
+   "sp": "S5",
+   "tipo": "Error",
+   "txt": "Migré la base interna de n8n a PostgreSQL porque ya no acepta MySQL",
+   "pri": "Alta",
+   "pts": 2,
+   "est": "Terminado",
+   "crit": "n8n arranca con DB_TYPE=postgresdb"
+  },
+  {
+   "id": "PB30",
+   "sp": "S5",
+   "tipo": "Error",
+   "txt": "Resolví el error de la clave de cifrado de n8n",
+   "pri": "Alta",
+   "pts": 2,
+   "est": "Terminado",
+   "crit": "Limpié el esquema y configuré una clave nueva"
+  },
+  {
+   "id": "PB31",
+   "sp": "S5",
+   "tipo": "Tarea",
+   "txt": "Reimporté el workflow, configuré credenciales y conecté el backend al webhook en línea",
+   "pri": "Alta",
+   "pts": 3,
+   "est": "Terminado",
+   "crit": "Actualicé la variable del webhook en el backend"
+  },
+  {
+   "id": "PB32",
+   "sp": "S6",
+   "tipo": "Tarea",
+   "txt": "Armé una colección de pruebas en Postman contra el backend en línea",
+   "pri": "Alta",
+   "pts": 2,
+   "est": "Terminado",
+   "crit": "Salud y login responden 200"
+  },
+  {
+   "id": "PB33",
+   "sp": "S6",
+   "tipo": "Tarea",
+   "txt": "Probé el sistema de extremo a extremo en línea",
+   "pri": "Alta",
+   "pts": 3,
+   "est": "Terminado",
+   "crit": "Generé temas y anteproyecto desde la página publicada"
+  },
+  {
+   "id": "PB34",
+   "sp": "S6",
+   "tipo": "Tarea",
+   "txt": "Unifiqué el documento de tesis con la estructura de la UMG y normas APA",
+   "pri": "Alta",
+   "pts": 8,
+   "est": "Terminado",
+   "crit": "Documento con los capítulos I al VIII"
+  },
+  {
+   "id": "PB35",
+   "sp": "S6",
+   "tipo": "Tarea",
+   "txt": "Inserté las capturas del capítulo VI y llené la tabla de pruebas",
+   "pri": "Alta",
+   "pts": 3,
+   "est": "Terminado",
+   "crit": "Todas las figuras tienen su captura"
+  },
+  {
+   "id": "PB36",
+   "sp": "S6",
+   "tipo": "Tarea",
+   "txt": "Organicé el control de versiones con README y el workflow en el repositorio",
+   "pri": "Alta",
+   "pts": 2,
+   "est": "Terminado",
+   "crit": "Dos repositorios públicos con historial de commits"
+  },
+  {
+   "id": "PB37",
+   "sp": "S6",
+   "tipo": "Tarea",
+   "txt": "Completé el diccionario de datos de las seis tablas desde la base real",
+   "pri": "Media",
+   "pts": 2,
+   "est": "Terminado",
+   "crit": "Diccionario de las 6 tablas obtenido de information_schema"
+  },
+  {
+   "id": "PB38",
+   "sp": "S7",
+   "tipo": "Error",
+   "txt": "Resolví la caída de n8n por falta de memoria subiendo su instancia",
+   "pri": "Alta",
+   "pts": 5,
+   "est": "Terminado",
+   "crit": "La generación funciona en línea sin caídas"
+  },
+  {
+   "id": "PB39",
+   "sp": "S7",
+   "tipo": "Tarea",
+   "txt": "Publiqué el frontend y lo conecté con el backend",
+   "pri": "Alta",
+   "pts": 3,
+   "est": "Terminado",
+   "crit": "El sistema completo abre desde una URL pública"
+  },
+  {
+   "id": "PB40",
+   "sp": "S6",
+   "tipo": "Tarea",
+   "txt": "Verifiqué que los repositorios públicos no tengan credenciales",
+   "pri": "Alta",
+   "pts": 1,
+   "est": "Terminado",
+   "crit": "Solo se publica .env.example sin valores"
+  },
+  {
+   "id": "PB41",
+   "sp": "S7",
+   "tipo": "Tarea",
+   "txt": "Cambiar las contraseñas temporales de los usuarios de prueba",
+   "pri": "Media",
+   "pts": 1,
+   "est": "Pendiente",
+   "crit": "Contraseñas temporales reemplazadas"
+  },
+  {
+   "id": "PB42",
+   "sp": "S7",
+   "tipo": "Tarea",
+   "txt": "Preparé y realicé la demostración del sistema",
+   "pri": "Alta",
+   "pts": 3,
+   "est": "Terminado",
+   "crit": "Presenté el flujo completo en línea"
+  },
+  {
+   "id": "PB43",
+   "sp": "S7",
+   "tipo": "Historia",
+   "txt": "Creé las rutas para que el administrador vea la lista de usuarios",
+   "pri": "Alta",
+   "pts": 3,
+   "est": "Terminado",
+   "crit": "Probado en línea: la lista carga desde la base de datos"
+  },
+  {
+   "id": "PB44",
+   "sp": "S7",
+   "tipo": "Historia",
+   "txt": "Hice que el administrador cree usuarios desde la página con contraseña cifrada",
+   "pri": "Alta",
+   "pts": 3,
+   "est": "Terminado",
+   "crit": "Probado en línea: creé el usuario docente1 con rol asesor"
+  },
+  {
+   "id": "PB45",
+   "sp": "S7",
+   "tipo": "Historia",
+   "txt": "Hice que el asesor vea las propuestas de todos los estudiantes",
+   "pri": "Alta",
+   "pts": 3,
+   "est": "Terminado",
+   "crit": "Probado en línea: la bandeja muestra 17 propuestas con nombre y carnet"
+  },
+  {
+   "id": "PB46",
+   "sp": "S7",
+   "tipo": "Historia",
+   "txt": "Permití que el asesor revise una propuesta, escriba observaciones y avise al estudiante",
+   "pri": "Alta",
+   "pts": 5,
+   "est": "Terminado",
+   "crit": "Probado en línea: el estudiante ve la observación en Revisiones con aviso en el menú"
+  },
+  {
+   "id": "PB47",
+   "sp": "S7",
+   "tipo": "Historia",
+   "txt": "Completé el panel general del coordinador",
+   "pri": "Media",
+   "pts": 3,
+   "est": "Terminado",
+   "crit": "Probado en línea: muestra los formularios de todos los estudiantes"
+  },
+  {
+   "id": "PB48",
+   "sp": "S7",
+   "tipo": "Tarea",
+   "txt": "Limité los intentos fallidos de inicio de sesión",
+   "pri": "Media",
+   "pts": 2,
+   "est": "Terminado",
+   "crit": "Tras 5 intentos fallidos en 15 minutos el login se bloquea 15 minutos"
+  },
+  {
+   "id": "PB49",
+   "sp": "S7",
+   "tipo": "Tarea",
+   "txt": "Limpiar archivos sobrantes del proyecto",
+   "pri": "Baja",
+   "pts": 1,
+   "est": "Pendiente",
+   "crit": "Sin copias de .env ni carpetas creadas por error"
+  },
+  {
+   "id": "PB50",
+   "sp": "S7",
+   "tipo": "Tarea",
+   "txt": "Probé en línea cada rol",
+   "pri": "Alta",
+   "pts": 2,
+   "est": "Terminado",
+   "crit": "Administrador, coordinador, asesor y estudiante funcionan en la página publicada"
+  },
+  {
+   "id": "PB51",
+   "sp": "S7",
+   "tipo": "Error",
+   "txt": "Corregí la página en blanco que quedaba al cerrar sesión",
+   "pri": "Media",
+   "pts": 1,
+   "est": "Terminado",
+   "crit": "Al cerrar sesión regresa al inicio de sesión"
+  },
+  {
+   "id": "PB52",
+   "sp": "S7",
+   "tipo": "Error",
+   "txt": "Corregí el estado de los formularios, que se quedaban en borrador después de generar la propuesta",
+   "pri": "Media",
+   "pts": 2,
+   "est": "Terminado",
+   "crit": "El panel del coordinador cuenta los formularios procesados"
+  },
+  {
+   "id": "PB53",
+   "sp": "S7",
+   "tipo": "Historia",
+   "txt": "Hice que los estudiantes creen su cuenta con correo institucional y que el administrador la apruebe",
+   "pri": "Alta",
+   "pts": 5,
+   "est": "Terminado",
+   "crit": "La cuenta nueva queda pendiente hasta que el administrador la activa"
+  },
+  {
+   "id": "PB54",
+   "sp": "S7",
+   "tipo": "Historia",
+   "txt": "Hice que Mi propuesta e Historial lean las propuestas desde la base de datos",
+   "pri": "Media",
+   "pts": 3,
+   "est": "Terminado",
+   "crit": "Probado desde otro navegador: Mi propuesta e Historial muestran los datos de la base"
+  },
+  {
+   "id": "PB55",
+   "sp": "S7",
+   "tipo": "Historia",
+   "txt": "Amplié el panel del coordinador con gráficas, avance por estudiante, rendimiento de la IA, aprobación de cuentas y reporte en Excel",
+   "pri": "Alta",
+   "pts": 5,
+   "est": "Terminado",
+   "crit": "Probado en línea: activé la cuenta de claudia y descargué el reporte en Excel"
+  }
+ ],
+ "sprints": [
+  {
+   "id": "S1",
+   "nom": "Base de datos",
+   "obj": "Analizar y confirmar el esquema MySQL de 6 tablas",
+   "ini": "2026-08-03",
+   "fin": "2026-08-09"
+  },
+  {
+   "id": "S2",
+   "nom": "Backend y autenticación",
+   "obj": "API en Express y TypeScript con token, contraseñas cifradas y módulos",
+   "ini": "2026-08-10",
+   "fin": "2026-08-18"
+  },
+  {
+   "id": "S3",
+   "nom": "Inteligencia artificial",
+   "obj": "Flujo de n8n que valida, genera con Gemini y guarda en MySQL",
+   "ini": "2026-08-19",
+   "fin": "2026-08-31"
+  },
+  {
+   "id": "S4",
+   "nom": "Frontend",
+   "obj": "Interfaz en React para los cuatro roles conectada al backend",
+   "ini": "2026-09-01",
+   "fin": "2026-09-19"
+  },
+  {
+   "id": "S5",
+   "nom": "Despliegue en línea",
+   "obj": "Publicar la base, el backend y n8n en la nube",
+   "ini": "2026-09-20",
+   "fin": "2026-10-11"
+  },
+  {
+   "id": "S6",
+   "nom": "Pruebas y documentación",
+   "obj": "Pruebas de extremo a extremo y documento de tesis",
+   "ini": "2026-10-12",
+   "fin": "2026-10-23"
+  },
+  {
+   "id": "S7",
+   "nom": "Estabilización y roles",
+   "obj": "Publicar el frontend, demostrar y completar los módulos por rol",
+   "ini": "2026-10-24",
+   "fin": "2026-11-06"
+  }
+ ]
+}

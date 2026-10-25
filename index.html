@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Tablero Scrum y cronograma del proyecto de graduación Asistente Web para la Planificación de Tesis, UMG.">
+<title>Tablero del Asistente de Tesis</title>
+<style>*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}body{margin:0}</style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Tablero tipo Kanban por sprints, con la identidad del sistema: azul tinta y oro académico */
+:root{
+ --bg:#EEF0F4; --panel:#E3E6ED; --card:#FFFFFF; --ink:#14213D; --muted:#5B6478; --line:#D3D8E2;
+ --gold:#C98A2B; --gold-soft:#F4E6CF; --ok:#2F7D5B; --ok-soft:#DCEFE6; --run:#2D5BA8; --run-soft:#DDE6F6; --todo:#8A6A2A; --todo-soft:#F3EAD7; --bug:#A63D3D; --bug-soft:#F5E0E0;
+ --display:"Fraunces",Georgia,serif; --body:"IBM Plex Sans",system-ui,sans-serif; --mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+ --bg:#0F1626; --panel:#172137; --card:#1E2A44; --ink:#E8ECF4; --muted:#A3ADC2; --line:#2B3858;
+ --gold:#E0A64A; --gold-soft:#3A2F1C; --ok:#6CC59A; --ok-soft:#1B3A2E; --run:#85A9EC; --run-soft:#1D2E52; --todo:#E0BE7A; --todo-soft:#3A3120; --bug:#E68A8A; --bug-soft:#432222; color-scheme:dark}}
+:root[data-theme="dark"]{
+ --bg:#0F1626; --panel:#172137; --card:#1E2A44; --ink:#E8ECF4; --muted:#A3ADC2; --line:#2B3858;
+ --gold:#E0A64A; --gold-soft:#3A2F1C; --ok:#6CC59A; --ok-soft:#1B3A2E; --run:#85A9EC; --run-soft:#1D2E52; --todo:#E0BE7A; --todo-soft:#3A3120; --bug:#E68A8A; --bug-soft:#432222; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.45}
+.wrap{max-width:1320px;margin:0 auto;padding-block:28px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:22px}
+header{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px}
+.eyebrow{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);font-weight:600}
+h1{font-family:var(--display);font-size:clamp(26px,3.4vw,38px);margin:4px 0 6px;text-wrap:balance}
+.sub{color:var(--muted);margin:0;max-width:62ch}
+.total{display:flex;gap:20px;font-variant-numeric:tabular-nums}
+.total div{display:flex;flex-direction:column}
+.total b{font-family:var(--display);font-size:28px}
+.total span{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.sprints{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px}
+.sp{all:unset;cursor:pointer;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.sp:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.sp[aria-pressed="true"]{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold)}
+.sp .top{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.sp .k{font-family:var(--mono);font-size:12px;color:var(--gold)}
+.sp .pct{font-variant-numeric:tabular-nums;font-size:13px;color:var(--muted)}
+.sp .n{font-weight:600;font-size:14px}
+.sp .d{font-size:12px;color:var(--muted)}
+.bar{height:6px;background:var(--panel);border-radius:3px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--ok)}
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{all:unset;cursor:pointer;font-size:13px;padding:5px 11px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.chip:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.note{font-size:13px;color:var(--muted)}
+.board{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;align-items:start}
+.col{background:var(--panel);border-radius:10px;padding:12px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.col h2{font-size:14px;margin:2px 4px;display:flex;justify-content:space-between;text-transform:uppercase;letter-spacing:.06em}
+.col h2 em{font-style:normal;font-variant-numeric:tabular-nums;color:var(--muted)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:11px 12px;display:flex;flex-direction:column;gap:7px}
+.meta{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:12px}
+.id{font-family:var(--mono);color:var(--muted)}
+.tag{padding:1px 7px;border-radius:4px;font-weight:500}
+.t-Historia{background:var(--gold-soft);color:var(--todo)}
+.t-Tarea{background:var(--run-soft);color:var(--run)}
+.t-Error{background:var(--bug-soft);color:var(--bug)}
+.txt{margin:0;font-size:14.5px}
+.crit{margin:0;font-size:12.5px;color:var(--muted)}
+.foot{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.pri-Alta{color:var(--bug)} .pri-Media{color:var(--todo)} .pri-Baja{color:var(--muted)}
+.empty{font-size:13px;color:var(--muted);padding:8px 4px}
+
+.tabs{display:flex;gap:4px;background:var(--panel);padding:4px;border-radius:9px;width:max-content;max-width:100%}
+.tab{all:unset;cursor:pointer;padding:7px 16px;border-radius:7px;font-size:14px;font-weight:500;color:var(--muted)}
+.tab[aria-selected="true"]{background:var(--card);color:var(--ink);box-shadow:0 1px 2px rgba(20,33,61,.12)}
+.tab:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.gantt{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px 18px 10px;overflow-x:auto}
+.gwrap{min-width:760px;display:grid;grid-template-columns:200px 1fr 56px;row-gap:6px;align-items:center}
+.ghead{position:relative;height:30px;border-bottom:1px solid var(--line)}
+.gmes{position:absolute;top:4px;font-size:12px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);font-weight:600}
+.gtrack{position:relative;height:34px}
+.gline{position:absolute;top:0;bottom:0;width:1px;background:var(--line)}
+.ghoy{position:absolute;top:-4px;bottom:-4px;width:2px;background:var(--gold);border-radius:2px}
+.ghoytag{position:absolute;top:-2px;transform:translateX(-50%);font-size:11px;font-weight:600;color:var(--gold);background:var(--card);padding:0 4px}
+.gbar{all:unset;cursor:pointer;position:absolute;top:6px;height:22px;border-radius:5px;background:var(--panel);overflow:hidden;box-shadow:inset 0 0 0 1px var(--line)}
+.gbar i{display:block;height:100%;background:var(--ok);opacity:.85}
+.gbar:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.gbar[aria-pressed="true"]{box-shadow:0 0 0 2px var(--gold)}
+.gname{all:unset;cursor:pointer;display:flex;flex-direction:column;padding-right:12px;min-width:0}
+.gname b{font-size:14px} .gname span{font-size:12px;color:var(--muted)}
+.gname .k{font-family:var(--mono);color:var(--gold);font-size:12px}
+.gpct{text-align:right;font-variant-numeric:tabular-nums;font-size:13px;color:var(--muted)}
+.detalle{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px;display:flex;flex-direction:column;gap:12px}
+.detalle h3{font-family:var(--display);font-size:20px;margin:0}
+.detalle .obj{margin:0;color:var(--muted);font-size:14px}
+.lista{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:8px}
+.lista li{display:flex;gap:10px;align-items:flex-start;padding:9px 10px;border:1px solid var(--line);border-radius:7px;font-size:14px;min-width:0}
+.est{flex:none;font-size:11.5px;font-weight:600;padding:2px 7px;border-radius:4px;white-space:nowrap}
+.e-Terminado{background:var(--ok-soft);color:var(--ok)} .e-Pendiente{background:var(--todo-soft);color:var(--todo)} .e-En{background:var(--run-soft);color:var(--run)}
+.leyenda{display:flex;gap:16px;flex-wrap:wrap;font-size:12.5px;color:var(--muted);padding-top:10px}
+.leyenda span{display:inline-flex;align-items:center;gap:6px}
+.leyenda i{display:inline-block;width:14px;height:8px;border-radius:2px}
+@media (max-width:860px){.board{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:no-preference){.card{transition:transform .12s}.card:hover{transform:translateY(-1px)}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+ <header>
+  <div>
+   <div class="eyebrow">Tablero Scrum de mi proyecto de graduación</div>
+   <h1>Asistente Web para la Planificación de Tesis</h1>
+   <p class="sub">Aquí organizo mi trabajo por sprints. Cada tarjeta es un ítem de mi backlog con su prioridad, sus puntos y el criterio con el que doy el ítem por terminado.</p>
+  </div>
+  <div class="total" id="total"></div>
+ </header>
+ <div class="tabs" role="tablist">
+  <button class="tab" role="tab" id="t-crono" aria-selected="true">Cronograma</button>
+  <button class="tab" role="tab" id="t-tablero" aria-selected="false">Tablero</button>
+ </div>
+ <section id="v-crono" style="display:flex;flex-direction:column;gap:16px">
+  <div class="gantt"><div class="gwrap" id="gantt"></div>
+   <div class="leyenda"><span><i style="background:var(--ok)"></i>Avance en puntos terminados</span><span><i style="background:var(--panel);box-shadow:inset 0 0 0 1px var(--line)"></i>Pendiente</span><span><i style="background:var(--gold);width:3px;height:12px"></i>Hoy</span><span>Toca un sprint para ver sus ítems</span></div>
+  </div>
+  <div class="detalle" id="detalle"></div>
+ </section>
+ <section id="v-tablero" style="display:none;flex-direction:column;gap:22px">
+ <section class="sprints" id="sprints" aria-label="Sprints"></section>
+ <div class="tools">
+  <div class="chips" id="tipos" aria-label="Filtrar por tipo"></div>
+  <span class="note" id="filtro"></span>
+ </div>
+ <main class="board" id="board"></main>
+ </section>
+</div>
+<script>
+let DATA = {items:[],sprints:[]};
+const ESTADOS=["Pendiente","En progreso","Terminado"];
+let spSel=null, tipoSel="Todos";
+const fmt=d=>{const [y,m,dd]=d.split("-");const ms=["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic"];return +dd+" "+ms[+m-1]};
+function el(t,c,h){const e=document.createElement(t);if(c)e.className=c;if(h!=null)e.textContent=h;return e}
+function render(){
+ const its=DATA.items;
+ const T=document.getElementById("total");T.innerHTML="";
+ const done=its.filter(i=>i.est==="Terminado"),pts=its.reduce((a,i)=>a+i.pts,0),pd=done.reduce((a,i)=>a+i.pts,0);
+ [[its.length,"ítems"],[done.length,"terminados"],[Math.round(pd/pts*100)+"%","puntos hechos"]].forEach(([v,l])=>{const d=el("div");d.append(el("b",null,v),el("span",null,l));T.append(d)});
+ const S=document.getElementById("sprints");S.innerHTML="";
+ DATA.sprints.forEach(s=>{const xs=its.filter(i=>i.sp===s.id),p=xs.reduce((a,i)=>a+i.pts,0),q=xs.filter(i=>i.est==="Terminado").reduce((a,i)=>a+i.pts,0),pc=p?Math.round(q/p*100):0;
+  const b=el("button","sp");b.setAttribute("aria-pressed",spSel===s.id);b.title=s.obj;
+  const top=el("div","top");top.append(el("span","k",s.id),el("span","pct",pc+"%"));
+  const bar=el("div","bar");const i=el("i");i.style.width=pc+"%";bar.append(i);
+  b.append(top,el("span","n",s.nom),el("span","d",fmt(s.ini)+" al "+fmt(s.fin)),bar);
+  b.onclick=()=>{spSel=spSel===s.id?null:s.id;render()};S.append(b)});
+ const C=document.getElementById("tipos");C.innerHTML="";
+ ["Todos","Historia","Tarea","Error"].forEach(t=>{const b=el("button","chip",t);b.setAttribute("aria-pressed",tipoSel===t);b.onclick=()=>{tipoSel=t;render()};C.append(b)});
+ const s=DATA.sprints.find(x=>x.id===spSel);
+ document.getElementById("filtro").textContent=s?("Mostrando "+s.id+": "+s.obj+". Toca el sprint otra vez para ver todo."):"Toca un sprint para ver solo sus ítems.";
+ const B=document.getElementById("board");B.innerHTML="";
+ const vis=its.filter(i=>(!spSel||i.sp===spSel)&&(tipoSel==="Todos"||i.tipo===tipoSel));
+ ESTADOS.forEach(e=>{const xs=vis.filter(i=>i.est===e);const col=el("section","col");const h=el("h2",null,e);h.append(el("em",null,String(xs.length)));col.append(h);
+  if(!xs.length)col.append(el("div","empty","Sin ítems en esta columna."));
+  xs.forEach(i=>{const c=el("article","card");const m=el("div","meta");m.append(el("span","id",i.id),el("span","tag t-"+i.tipo,i.tipo),el("span","id",i.sp));
+   const f=el("div","foot");f.append(el("span","pri-"+i.pri,"Prioridad "+i.pri.toLowerCase()),el("span",null,i.pts+(i.pts===1?" punto":" puntos")));
+   c.append(m,el("p","txt",i.txt),el("p","crit","Criterio: "+i.crit),f);col.append(c)});
+  B.append(col)});
+}
+
+let vista="crono", spCrono=null;
+const D=s=>new Date(s+"T00:00:00");
+function avance(id){const xs=DATA.items.filter(i=>i.sp===id),p=xs.reduce((a,i)=>a+i.pts,0),q=xs.filter(i=>i.est==="Terminado").reduce((a,i)=>a+i.pts,0);return p?Math.round(q/p*100):0}
+function renderCrono(){
+ const G=document.getElementById("gantt");G.innerHTML="";
+ const ini=D("2026-08-01"),fin=D("2026-11-30"),total=fin-ini,pos=d=>((D(d)-ini)/total*100);
+ const hoyISO=new Date().toISOString().slice(0,10);
+ const meses=[["Agosto","2026-08-01"],["Septiembre","2026-09-01"],["Octubre","2026-10-01"],["Noviembre","2026-11-01"]];
+ const head=el("div","ghead");meses.forEach(([n,d])=>{const m=el("span","gmes",n);m.style.left=pos(d)+"%";m.style.paddingLeft="6px";head.append(m);const l=el("span","gline");l.style.left=pos(d)+"%";head.append(l)});
+ G.append(el("div"),head,el("div"));
+ if(!spCrono){const actual=DATA.sprints.find(s=>s.ini<=hoyISO&&hoyISO<=s.fin);spCrono=(actual||DATA.sprints[DATA.sprints.length-1]).id}
+ DATA.sprints.forEach(s=>{
+  const pc=avance(s.id);
+  const nm=el("button","gname");nm.append(el("span","k",s.id),el("b",null,s.nom),el("span",null,fmt(s.ini)+" al "+fmt(s.fin)));nm.onclick=()=>{spCrono=s.id;renderCrono()};
+  const tr=el("div","gtrack");meses.forEach(([,d])=>{const l=el("span","gline");l.style.left=pos(d)+"%";tr.append(l)});
+  const b=el("button","gbar");b.style.left=pos(s.ini)+"%";b.style.width=Math.max(1.2,pos(s.fin)-pos(s.ini)+0.8)+"%";b.title=s.nom+": "+pc+"% de avance";b.setAttribute("aria-pressed",spCrono===s.id);
+  const f=el("i");f.style.width=pc+"%";b.append(f);b.onclick=()=>{spCrono=s.id;renderCrono()};tr.append(b);
+  if(hoyISO>=DATA.sprints[0].ini&&hoyISO<="2026-11-30"){const hy=el("span","ghoy");hy.style.left=pos(hoyISO)+"%";tr.append(hy)}
+  G.append(nm,tr,el("span","gpct",pc+"%"));
+ });
+ const pie=el("div","ghead");pie.style.border="0";pie.style.height="18px";
+ if(hoyISO<="2026-11-30"){const t=el("span","ghoytag","Hoy");t.style.left=pos(hoyISO)+"%";pie.append(t)}
+ G.append(el("div"),pie,el("div"));
+ const s=DATA.sprints.find(x=>x.id===spCrono),xs=DATA.items.filter(i=>i.sp===s.id);
+ const orden={"En progreso":0,"Pendiente":1,"Terminado":2};xs.sort((a,b)=>orden[a.est]-orden[b.est]);
+ const Dt=document.getElementById("detalle");Dt.innerHTML="";
+ const h3=el("h3",null,s.id+" "+s.nom);
+ const hechos=xs.filter(i=>i.est==="Terminado").length;
+ Dt.append(h3,el("p","obj",s.obj+". Del "+fmt(s.ini)+" al "+fmt(s.fin)+". "+hechos+" de "+xs.length+" ítems terminados, "+avance(s.id)+"% de los puntos."));
+ const ul=el("ul","lista");xs.forEach(i=>{const li=el("li");li.append(el("span","est e-"+i.est.split(" ")[0],i.est));const t=el("span");t.append(el("span","id",i.id+"  "),document.createTextNode(i.txt));li.append(t);ul.append(li)});Dt.append(ul);
+}
+function cambiarVista(v){vista=v;document.getElementById("t-crono").setAttribute("aria-selected",v==="crono");document.getElementById("t-tablero").setAttribute("aria-selected",v==="tablero");
+ document.getElementById("v-crono").style.display=v==="crono"?"flex":"none";document.getElementById("v-tablero").style.display=v==="tablero"?"flex":"none";}
+document.getElementById("t-crono").onclick=()=>cambiarVista("crono");
+document.getElementById("t-tablero").onclick=()=>cambiarVista("tablero");
+fetch("datos.json",{cache:"no-store"}).then(r=>r.json()).then(d=>{DATA=d;render();renderCrono();})
+ .catch(()=>{document.getElementById("detalle").textContent="No se pudieron cargar los datos del tablero.";});
+</script>
+</body>
+</html>
