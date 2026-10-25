@@ -569,6 +569,16 @@
    "pts": 8,
    "est": "Terminado",
    "crit": "Probado en línea: aprobé con rúbrica y el estudiante descargó el documento en Revisiones"
+  },
+  {
+   "id": "PB58",
+   "sp": "S7",
+   "tipo": "Historia",
+   "txt": "Ordené las Revisiones del estudiante con resumen, pestañas por estado y lista compacta",
+   "pri": "Media",
+   "pts": 3,
+   "est": "En progreso",
+   "crit": "El estudiante encuentra sus ajustes, aprobadas y documentos sin buscar"
   }
  ],
  "sprints": [
