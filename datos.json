@@ -549,6 +549,16 @@
    "pts": 5,
    "est": "Terminado",
    "crit": "Probado en línea: activé la cuenta de claudia y descargué el reporte en Excel"
+  },
+  {
+   "id": "PB56",
+   "sp": "S7",
+   "tipo": "Historia",
+   "txt": "Mejoré la pantalla del administrador con resumen por rol, estado del sistema, actividad reciente, filtros, cambio de rol y contraseña temporal",
+   "pri": "Alta",
+   "pts": 5,
+   "est": "En progreso",
+   "crit": "El administrador gestiona cuentas y ve el estado de la plataforma desde una sola pantalla"
   }
  ],
  "sprints": [
