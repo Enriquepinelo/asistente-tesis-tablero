@@ -599,6 +599,16 @@
       "pts": 5,
       "est": "En progreso",
       "crit": "Pedido por el ingeniero el 31 de octubre; probado con archivos reales y falsos, falta probarlo en línea como docente"
+    },
+    {
+      "id": "PB61",
+      "sp": "S7",
+      "tipo": "Historia",
+      "txt": "Permití que el estudiante suba archivos para su asesor desde Revisiones, y en la bandeja del asesor se marca cuáles subió el estudiante",
+      "pri": "Alta",
+      "pts": 3,
+      "est": "En progreso",
+      "crit": "Falta probarlo en línea: juanperez sube un PDF y el docente lo ve con la etiqueta Del estudiante"
     }
   ],
   "sprints": [
