@@ -587,8 +587,8 @@
       "txt": "Agregué un indicador de carga mientras la IA genera la respuesta, con el paso actual y el tiempo, y un aviso de Listo en verde al terminar",
       "pri": "Alta",
       "pts": 3,
-      "est": "En progreso",
-      "crit": "Pedido por el ingeniero el 31 de octubre; falta probarlo en línea generando temas y desarrollo"
+      "est": "Terminado",
+      "crit": "Pedido por el ingeniero el 31 de octubre; probado en línea el 31 de octubre generando temas y desarrollo"
     },
     {
       "id": "PB60",
@@ -597,8 +597,8 @@
       "txt": "Validé la carga real de archivos: el servidor revisa el contenido de PDF, Word, Excel, PowerPoint e imágenes, la extensión y el límite de 5 MB, y la página muestra el avance de la subida",
       "pri": "Alta",
       "pts": 5,
-      "est": "En progreso",
-      "crit": "Pedido por el ingeniero el 31 de octubre; probado con archivos reales y falsos, falta probarlo en línea como docente"
+      "est": "Terminado",
+      "crit": "Pedido por el ingeniero el 31 de octubre; probado con archivos reales y falsos, probado en línea el 31 de octubre como docente"
     },
     {
       "id": "PB61",
@@ -607,8 +607,8 @@
       "txt": "Permití que el estudiante suba archivos para su asesor desde Revisiones, y en la bandeja del asesor se marca cuáles subió el estudiante",
       "pri": "Alta",
       "pts": 3,
-      "est": "En progreso",
-      "crit": "Falta probarlo en línea: juanperez sube un PDF y el docente lo ve con la etiqueta Del estudiante"
+      "est": "Terminado",
+      "crit": "Probado en línea: juanperez sube un PDF y el docente lo ve con la etiqueta Del estudiante"
     },
     {
       "id": "PB62",
@@ -617,8 +617,8 @@
       "txt": "Agregué avisos para el asesor cuando un estudiante sube un archivo: número en el menú, alerta en pantalla y aviso en la bandeja con acceso directo a la propuesta",
       "pri": "Alta",
       "pts": 3,
-      "est": "En progreso",
-      "crit": "Falta probarlo en línea: juanperez sube un archivo y el docente ve el número, la alerta y el aviso"
+      "est": "Terminado",
+      "crit": "Probado en línea: juanperez sube un archivo y el docente ve el número, la alerta y el aviso"
     },
     {
       "id": "PB63",
@@ -627,8 +627,8 @@
       "txt": "Agregué avisos para el estudiante cuando su asesor le comparte un documento: número en el menú de Revisiones, alerta en pantalla, aviso y marca Nuevo en la propuesta",
       "pri": "Alta",
       "pts": 2,
-      "est": "En progreso",
-      "crit": "Falta probarlo en línea: el docente sube un archivo y juanperez ve el número, la alerta y la marca Nuevo"
+      "est": "Terminado",
+      "crit": "Probado en línea: el docente sube un archivo y juanperez ve el número, la alerta y la marca Nuevo"
     },
     {
       "id": "PB64",
@@ -637,8 +637,8 @@
       "txt": "Hice que el estudiante decida qué propuesta enviar a su asesor: lo generado queda como borrador, se envía con un mensaje opcional, el asesor recibe aviso y puede pedir ajustes para que se reenvíe corregida",
       "pri": "Alta",
       "pts": 5,
-      "est": "En progreso",
-      "crit": "Probado con base de datos local; falta probarlo en línea: juanperez envía un anteproyecto y solo entonces aparece en la bandeja del docente"
+      "est": "Terminado",
+      "crit": "Probado con base de datos local; probado en línea el 31 de octubre: juanperez envía un anteproyecto y solo entonces aparece en la bandeja del docente"
     },
     {
       "id": "PB65",
@@ -647,8 +647,8 @@
       "txt": "Corregí que Ver propuesta completa en Revisiones regresara a elegir entre los 3 temas y que Mi propuesta mostrara una propuesta vieja en lugar de la más reciente",
       "pri": "Alta",
       "pts": 2,
-      "est": "En progreso",
-      "crit": "Falta probarlo en línea: generar temas nuevos, elegir uno y ver que Mi propuesta y Revisiones muestran lo último"
+      "est": "Terminado",
+      "crit": "Probado en línea: generar temas nuevos, elegir uno y ver que Mi propuesta y Revisiones muestran lo último"
     }
   ],
   "sprints": [
