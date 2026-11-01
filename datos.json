@@ -609,6 +609,16 @@
       "pts": 3,
       "est": "En progreso",
       "crit": "Falta probarlo en línea: juanperez sube un PDF y el docente lo ve con la etiqueta Del estudiante"
+    },
+    {
+      "id": "PB62",
+      "sp": "S7",
+      "tipo": "Historia",
+      "txt": "Agregué avisos para el asesor cuando un estudiante sube un archivo: número en el menú, alerta en pantalla y aviso en la bandeja con acceso directo a la propuesta",
+      "pri": "Alta",
+      "pts": 3,
+      "est": "En progreso",
+      "crit": "Falta probarlo en línea: juanperez sube un archivo y el docente ve el número, la alerta y el aviso"
     }
   ],
   "sprints": [
